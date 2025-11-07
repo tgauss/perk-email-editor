@@ -13,6 +13,13 @@
     "release": "npm run build-bundle && npm publish"
   },
   "dependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "grapesjs": "^0.22.13",
+    "grapesjs-preset-newsletter": "^1.0.2",
+    "juice": "^11.0.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "unlayer-types": "latest",
     "vue": "^3.2.13"
   },

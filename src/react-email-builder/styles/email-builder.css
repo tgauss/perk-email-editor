@@ -1,0 +1,326 @@
+/**
+ * Email Builder Styles
+ * Custom styles for GrapeJS email builder
+ */
+
+/* Import GrapeJS core styles */
+@import 'grapesjs/dist/css/grapes.min.css';
+@import 'grapesjs-preset-newsletter/dist/grapesjs-preset-newsletter.css';
+
+/* Email Builder Wrapper */
+.email-builder-wrapper {
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Panel Styling */
+.gjs-pn-panel {
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+}
+
+.gjs-pn-btn {
+  color: #6b7280;
+  transition: all 0.2s;
+}
+
+.gjs-pn-btn:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.gjs-pn-btn.gjs-pn-active {
+  background-color: #4F46E5;
+  color: #ffffff;
+}
+
+/* Block Manager Styling */
+.gjs-block-category {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.gjs-block-category .gjs-title {
+  background-color: #f9fafb;
+  color: #111827;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gjs-block {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background-color: #ffffff;
+  transition: all 0.2s;
+  min-height: 80px;
+  padding: 10px;
+}
+
+.gjs-block:hover {
+  border-color: #4F46E5;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
+  transform: translateY(-2px);
+}
+
+.gjs-block__media {
+  color: #4F46E5;
+}
+
+.gjs-block-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  margin-top: 8px;
+}
+
+/* Canvas Styling */
+.gjs-cv-canvas {
+  background-color: #f3f4f6;
+}
+
+.gjs-cv-canvas__frames {
+  padding: 20px;
+}
+
+.gjs-frame-wrapper {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Toolbar Styling */
+.gjs-toolbar {
+  background-color: #111827;
+  border-radius: 6px;
+}
+
+.gjs-toolbar-item {
+  color: #ffffff;
+}
+
+.gjs-toolbar-item:hover {
+  background-color: #374151;
+}
+
+/* Layer Manager Styling */
+.gjs-layer {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.gjs-layer:hover {
+  background-color: #f9fafb;
+}
+
+.gjs-layer.gjs-selected {
+  background-color: #eff6ff;
+  border-left: 3px solid #4F46E5;
+}
+
+.gjs-layer__name {
+  font-size: 13px;
+  color: #374151;
+}
+
+/* Style Manager Styling */
+.gjs-sm-sector {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.gjs-sm-sector-title {
+  background-color: #f9fafb;
+  color: #111827;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gjs-sm-property {
+  padding: 8px 10px;
+}
+
+.gjs-sm-label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.gjs-field input,
+.gjs-field select {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 13px;
+  transition: border-color 0.2s;
+}
+
+.gjs-field input:focus,
+.gjs-field select:focus {
+  border-color: #4F46E5;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Trait Manager Styling */
+.gjs-trt-trait {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.gjs-trt-trait__label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* Custom Loyalty Blocks Styling in Canvas */
+.loyalty-points-balance,
+.loyalty-tier-status,
+.loyalty-reward-rail,
+.loyalty-receipt-summary,
+.loyalty-referral-link,
+.loyalty-commerce-stats,
+.loyalty-challenge-progress {
+  position: relative;
+}
+
+/* Hover effect for custom blocks */
+.gjs-selected .loyalty-points-balance,
+.gjs-selected .loyalty-tier-status,
+.gjs-selected .loyalty-reward-rail,
+.gjs-selected .loyalty-receipt-summary,
+.gjs-selected .loyalty-referral-link,
+.gjs-selected .loyalty-commerce-stats,
+.gjs-selected .loyalty-challenge-progress {
+  outline: 2px solid #4F46E5;
+  outline-offset: 2px;
+}
+
+/* Modal Styling */
+.gjs-mdl-dialog {
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.gjs-mdl-title {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  color: #111827;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.gjs-mdl-content {
+  padding: 20px;
+}
+
+.gjs-mdl-btn-close {
+  color: #6b7280;
+  transition: color 0.2s;
+}
+
+.gjs-mdl-btn-close:hover {
+  color: #111827;
+}
+
+/* Device Manager Styling */
+.gjs-pn-devices-c {
+  display: flex;
+  gap: 5px;
+}
+
+.gjs-pn-btn.gjs-pn-active[data-device="Mobile"] {
+  background-color: #10b981;
+}
+
+/* Custom Scrollbar */
+.gjs-blocks-c,
+.gjs-layers-c,
+.gjs-sm-sectors {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db #f9fafb;
+}
+
+.gjs-blocks-c::-webkit-scrollbar,
+.gjs-layers-c::-webkit-scrollbar,
+.gjs-sm-sectors::-webkit-scrollbar {
+  width: 8px;
+}
+
+.gjs-blocks-c::-webkit-scrollbar-track,
+.gjs-layers-c::-webkit-scrollbar-track,
+.gjs-sm-sectors::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
+.gjs-blocks-c::-webkit-scrollbar-thumb,
+.gjs-layers-c::-webkit-scrollbar-thumb,
+.gjs-sm-sectors::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 4px;
+}
+
+.gjs-blocks-c::-webkit-scrollbar-thumb:hover,
+.gjs-layers-c::-webkit-scrollbar-thumb:hover,
+.gjs-sm-sectors::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gjs-pn-panel {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .gjs-cv-canvas__frames {
+    padding: 10px;
+  }
+}
+
+/* Loading State */
+.email-builder-wrapper.loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Success/Error States */
+.gjs-pn-btn.success {
+  background-color: #10b981;
+  color: white;
+}
+
+.gjs-pn-btn.error {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* Accessibility */
+.gjs-pn-btn:focus,
+.gjs-field input:focus,
+.gjs-field select:focus {
+  outline: 2px solid #4F46E5;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .gjs-pn-panels,
+  .gjs-toolbar {
+    display: none !important;
+  }
+
+  .gjs-cv-canvas {
+    background-color: white !important;
+  }
+}
