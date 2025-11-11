@@ -1,208 +1,104 @@
-# Vue Email Editor
+# Perk Email Builder
 
-The excellent drag-n-drop email editor by [Unlayer](https://unlayer.com/embed) as a [Vue](https://vuejs.org/) _wrapper component_. This is the most powerful and developer friendly visual email builder for your app.
+A modern, open-source email builder built with **Next.js 16**, **React 19**, and **GrapeJS** for loyalty platforms.
 
-|                                                         Video Overview                                                          |
-| :-----------------------------------------------------------------------------------------------------------------------------: |
-| [![Vue Email Editor](https://unroll-assets.s3.amazonaws.com/unlayervideotour.png)](https://www.youtube.com/watch?v=MIWhX-NF3j8) |
-|                                      _Watch video overview: https://youtu.be/MIWhX-NF3j8_                                       |
+## Features
 
-## Live Demo
+- Drag-and-drop email editor powered by GrapeJS
+- Custom loyalty blocks (Points Balance, Tier Status, Reward Rail, Receipt Summary, Referral Link)
+- Newsletter preset blocks for professional emails
+- Export to HTML with inline CSS
+- Optimized for Vercel deployment
+- TypeScript support
 
-Check out the live demo here: https://vue-email-editor-demo.netlify.app/ ([Source Code](https://github.com/unlayer/vue-email-editor/tree/master/src))
+## Quick Start
 
-## Installation
+### Development
 
-The easiest way to use Vue Email Editor is to install it from Npm or Yarn and include it in your own Vue build process.
+```bash
+# Install dependencies
+npm install
 
-```
-npm install vue-email-editor --save
-```
-
-or
-
-```
-yarn add vue-email-editor
+# Start development server
+npm run dev
 ```
 
-## Usage
+Open [http://localhost:3000](http://localhost:3000) to view the homepage.
 
-Next, you'll need to import the Email Editor component to your app.
+Navigate to [http://localhost:3000/email-builder](http://localhost:3000/email-builder) to access the email builder.
 
-**App.vue**
+### Production Build
 
-```html
-<template>
-  <div id="app">
-    <div class="container">
-      <div id="bar">
-        <h1>Vue Email Editor (Demo)</h1>
+```bash
+# Build for production
+npm run build
 
-        <button v-on:click="saveDesign">Save Design</button>
-        <button v-on:click="exportHtml">Export HTML</button>
-      </div>
-
-      <EmailEditor
-        ref="emailEditor"
-        v-on:load="editorLoaded"
-        v-on:ready="editorReady"
-      />
-    </div>
-  </div>
-</template>
-
-<script>
-  import { EmailEditor } from 'vue-email-editor';
-
-  export default {
-    name: 'app',
-    components: {
-      EmailEditor,
-    },
-    methods: {
-      // called when the editor is created
-      editorLoaded() {
-        console.log('editorLoaded');
-        // Pass the template JSON here
-        // this.$refs.emailEditor.editor.loadDesign({});
-      },
-      // called when the editor has finished loading
-      editorReady() {
-        console.log('editorReady');
-      },
-      saveDesign() {
-        this.$refs.emailEditor.editor.saveDesign((design) => {
-          console.log('saveDesign', design);
-        });
-      },
-      exportHtml() {
-        this.$refs.emailEditor.editor.exportHtml((data) => {
-          console.log('exportHtml', data);
-        });
-      },
-    },
-  };
-</script>
+# Start production server
+npm start
 ```
 
-### Methods
+## Deploy to Vercel
 
-| method         | params              | description                                             |
-| -------------- | ------------------- | ------------------------------------------------------- |
-| **loadDesign** | `Object data`       | Takes the design JSON and loads it in the editor        |
-| **saveDesign** | `Function callback` | Returns the design JSON in a callback function          |
-| **exportHtml** | `Function callback` | Returns the design HTML and JSON in a callback function |
+The easiest way to deploy is using the [Vercel Platform](https://vercel.com):
 
-See the [example source](https://github.com/unlayer/vue-email-editor/tree/master/src) for a reference implementation.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tgauss/perk-email-editor)
 
-### Properties
+Or use the Vercel CLI:
 
-- `editorId` `String` HTML div id of the container where the editor will be embedded (optional)
-- `minHeight` `String` minimum height to initialize the editor with (default 500px)
-- `options` `Object` options passed to the Unlayer editor instance (default {})
-- `tools` `Object` configuration for the built-in and custom tools (default {})
-- `appearance` `Object` configuration for appearance and theme (default {})
-- `projectId` `Integer` Unlayer project ID (optional)
-- `locale` `String` translations string (default en-US)
-
-See the [Unlayer Docs](https://docs.unlayer.com/) for all available options.
-
-Here's an example using the above properties...
-
-**App.vue**
-
-```html
-<template>
-  <div id="app">
-    <div class="container">
-      <div id="bar">
-        <h1>Vue Email Editor (Demo)</h1>
-
-        <button v-on:click="saveDesign">Save Design</button>
-        <button v-on:click="exportHtml">Export HTML</button>
-      </div>
-
-      <EmailEditor
-        :appearance="appearance"
-        :min-height="minHeight"
-        :project-id="projectId"
-        :locale="locale"
-        :tools="tools"
-        :options="options"
-        ref="emailEditor"
-        v-on:load="editorLoaded"
-        v-on:ready="editorReady"
-      />
-    </div>
-  </div>
-</template>
-
-<script>
-  import { EmailEditor } from 'vue-email-editor';
-
-  export default {
-    name: 'app',
-    components: {
-      EmailEditor,
-    },
-    data() {
-      return {
-        minHeight: '1000px',
-        locale: 'en',
-        projectId: 0, // replace with your project id
-        tools: {
-          // disable image tool
-          image: {
-            enabled: false,
-          },
-        },
-        options: {},
-        appearance: {
-          theme: 'dark',
-          panels: {
-            tools: {
-              dock: 'right',
-            },
-          },
-        },
-      };
-    },
-    methods: {
-      // called when the editor is created
-      editorLoaded() {
-        console.log('editorLoaded');
-        // Pass your template JSON here
-        // this.$refs.emailEditor.editor.loadDesign({});
-      },
-      // called when the editor has finished loading
-      editorReady() {
-        console.log('editorReady');
-      },
-      saveDesign() {
-        this.$refs.emailEditor.editor.saveDesign((design) => {
-          console.log('saveDesign', design);
-        });
-      },
-      exportHtml() {
-        this.$refs.emailEditor.editor.exportHtml((data) => {
-          console.log('exportHtml', data);
-        });
-      },
-    },
-  };
-</script>
+```bash
+npm i -g vercel
+vercel
 ```
 
-## Custom Tools
+See [VERCEL_DEPLOYMENT_GUIDE.md](./VERCEL_DEPLOYMENT_GUIDE.md) for detailed deployment instructions.
 
-Custom tools can help you add your own content blocks to the editor. Every application is different and needs different tools to reach it's full potential. [Learn More](https://docs.unlayer.com/docs/custom-tools)
+## Project Structure
 
-[![Custom Tools](https://unroll-assets.s3.amazonaws.com/custom_tools.png)](https://docs.unlayer.com/docs/custom-tools)
+```
+perk-email-builder/
+├── app/
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Homepage
+│   └── email-builder/
+│       └── page.tsx        # Email builder page
+├── public/                 # Static assets
+├── next.config.js          # Next.js configuration
+├── vercel.json            # Vercel deployment config
+└── package.json           # Dependencies
+```
 
-## Localization
+## Technology Stack
 
-You can submit new language translations by creating a PR on this GitHub repo: https://github.com/unlayer/translations. Translations managed by [PhraseApp](https://phraseapp.com)
+- **Next.js 16** - React framework with App Router
+- **React 19** - UI library
+- **GrapeJS** - Open-source email builder (MIT license)
+- **TypeScript** - Type safety
+- **Vercel** - Deployment platform
 
-### License
+## Custom Blocks
 
-Copyright (c) 2024 Unlayer. [MIT](LICENSE) Licensed.
+The email builder includes custom loyalty blocks:
+
+1. **Points Balance** - Display user's current points
+2. **Tier Status** - Show membership tier with progress bar
+3. **Reward Rail** - Horizontal scrolling reward carousel
+4. **Receipt Summary** - Transaction details and line items
+5. **Referral Link** - Custom referral link with CTA
+
+## Development
+
+This is a Next.js project using the App Router. The email builder runs entirely client-side to avoid SSR issues with GrapeJS.
+
+### Key Files
+
+- `app/email-builder/page.tsx` - Main email builder component
+- `next.config.js` - Transpile configuration for GrapeJS
+- `vercel.json` - Vercel deployment settings
+
+## License
+
+MIT
+
+## Support
+
+For issues and feature requests, please create an issue on GitHub.
